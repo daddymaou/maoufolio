@@ -3,7 +3,8 @@ import Link from "next/link";
 
 export const metadata = {
   title: "About — Maou",
-  description: "About Maou (Musa Usman) — creative developer based in Nigeria.",
+  description:
+    "About Maou (Musa Usman) — creative developer based in Nigeria. Full-stack web apps, REST APIs in Java, and cross-platform mobile in Dart/Flutter.",
 };
 
 export default function AboutPage() {
@@ -20,14 +21,15 @@ export default function AboutPage() {
             known as <strong className="font-medium">Maou</strong>.
           </p>
           <p>
-            With four years in the field, I focus on creating interfaces that
-            feel human and distinct — steering clear of passing trends. My work
-            lives at the intersection of programming and design exploration.
+            With four years in the field, I build across the stack — full-stack
+            web apps, REST APIs in Java, and cross-platform mobile in
+            Dart/Flutter. I focus on interfaces that feel human and distinct,
+            steering clear of passing trends.
           </p>
           <p>
-            Currently exploring experimental web interactions and lightweight
-            digital products. Based in Nigeria, open to collaborating with
-            clients across the globe.
+            My work lives at the intersection of programming and design
+            exploration. Currently exploring experimental web interactions,
+            AI-assisted tools, and lightweight digital products.
           </p>
           <p>
             I care about systems that are clean under the hood and quiet on the
@@ -55,6 +57,8 @@ export default function AboutPage() {
           <ul className="space-y-2 text-[16px] font-light">
             <li>HTML, CSS & modern layout systems</li>
             <li>JavaScript / TypeScript / React</li>
+            <li>Java — backend & REST APIs</li>
+            <li>Dart / Flutter — cross-platform mobile</li>
             <li>Node.js, Python, Django</li>
             <li>UI/UX architecture</li>
             <li>Bots & automation tools</li>
