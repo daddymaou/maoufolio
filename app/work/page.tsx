@@ -3,7 +3,7 @@ import Image from "next/image";
 export const metadata = {
   title: "Work — Maou",
   description:
-    "Selected projects by Maou — full-stack apps, bots, and digital products.",
+    "Selected projects by Maou — full-stack apps, REST APIs, mobile apps, and digital products.",
 };
 
 type Project = {
@@ -34,7 +34,7 @@ const projects: Project[] = [
     tagline: "Instant ID Verification Platform",
     description:
       "Full-stack identity verification using OCR, MRZ parsing, and screenshot detection. Validates passports, driver's licenses, and national IDs without storing user data. Available as npm + Python packages.",
-    tags: ["OCR", "TypeScript", "Python", "Security"],
+    tags: ["OCR", "REST API", "TypeScript", "Python", "Security"],
     link: "https://idverify-app.vercel.app",
   },
   {
@@ -44,7 +44,7 @@ const projects: Project[] = [
     tagline: "Minimal Link-in-Bio Platform",
     description:
       "Clean link-in-bio for creators and developers. Unlimited links, portfolio showcase, drag-to-reorder, sharp monochrome design. Node.js, Express, MongoDB, Cloudinary.",
-    tags: ["SaaS", "Full-Stack", "Link-in-Bio"],
+    tags: ["SaaS", "Full-Stack", "REST API", "Link-in-Bio"],
     link: "https://dot.necros.web.id",
   },
   {
@@ -64,7 +64,7 @@ const projects: Project[] = [
     tagline: "Data Verification Platform",
     description:
       "Data verification and analytics platform with secure identity checks, reporting dashboards, and real-time validation services for businesses across Nigeria.",
-    tags: ["Web App", "Analytics", "Security"],
+    tags: ["Web App", "Java", "REST API", "Security"],
   },
   {
     slug: "fittrack",
@@ -72,8 +72,8 @@ const projects: Project[] = [
     year: "2026",
     tagline: "Gym & Fitness Tracker",
     description:
-      "Workout plans, progress tracking, nutrition logs, and personalized recommendations. Built with React Native, Node.js, and MongoDB.",
-    tags: ["Health", "Mobile", "Tracking"],
+      "Workout plans, progress tracking, nutrition logs, and personalized recommendations. Mobile app built with Dart/Flutter, backed by a REST API.",
+    tags: ["Health", "Flutter", "Mobile", "REST API"],
   },
 ];
 
@@ -84,8 +84,8 @@ export default function WorkPage() {
         selected work
       </h1>
       <p className="text-[16px] font-light text-ink/60 mb-14 max-w-xl">
-        A mix of full-stack products, bots, and experimental tools. Most are
-        live or actively maintained.
+        A mix of full-stack products, REST APIs, mobile apps, bots, and
+        experimental tools. Most are live or actively maintained.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-16">

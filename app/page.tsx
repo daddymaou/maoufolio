@@ -8,8 +8,8 @@ const roles = [
     n: "01",
     title: "developer",
     items: [
-      "building digital products that feel human",
-      "full-stack apps, bots & automation tools",
+      "building web apps, mobile apps & REST APIs",
+      "Java, Dart/Flutter & full-stack systems",
       { label: "see the work", href: "/work" },
     ],
   },
@@ -17,8 +17,8 @@ const roles = [
     n: "02",
     title: "focus",
     items: [
-      "interfaces that stay out of the way",
-      "clean systems, experimental edges",
+      "APIs that stay out of the way",
+      "clean architecture, experimental edges",
     ],
   },
   {
@@ -38,8 +38,9 @@ const roles = [
 
 const skills = [
   "Frontend — React, TypeScript, Tailwind",
-  "Backend — Node, Python, Django",
-  "Creative development & UI/UX",
+  "Mobile — Dart, Flutter",
+  "Backend — Java, Node, Python, Django",
+  "REST APIs & full-stack app development",
   "Bots, automation & AI tools",
 ];
 
