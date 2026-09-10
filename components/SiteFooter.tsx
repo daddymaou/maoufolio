@@ -9,10 +9,10 @@ export default function SiteFooter() {
             Building at the intersection of code & design
           </p>
           <a
-            href="mailto:hello@maou.name.ng"
+            href="mailto:daddymaouu@gmail.com"
             className="block text-sm uppercase tracking-wide border-b border-paper/60 pb-1 w-fit"
           >
-            hello@maou.name.ng
+            daddymaouu@gmail.com
           </a>
         </div>
 
@@ -27,6 +27,16 @@ export default function SiteFooter() {
                 className="hover:opacity-60"
               >
                 GitHub
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/maouknowsjava"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-60"
+              >
+                LinkedIn
               </a>
             </li>
             <li>
@@ -89,8 +99,8 @@ export default function SiteFooter() {
       </div>
 
       <div className="px-8 md:px-12 py-6 flex items-center justify-between text-xs opacity-70">
-        <span>ᗰᗩOᑌ | Code. Automate. Iterate.</span>
-        <span>Based in Nigeria</span>
+        <span>Code. Automate. Iterate.</span>
+        <span>ᗰᗩOᑌ</span>
       </div>
     </footer>
   );

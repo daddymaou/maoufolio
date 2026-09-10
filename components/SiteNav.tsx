@@ -114,10 +114,10 @@ export default function SiteNav() {
                 Email
               </p>
               <a
-                href="mailto:hello@maou.name.ng"
+                href="mailto:daddymaouu@gmail.com"
                 className="font-light hover:opacity-60 transition"
               >
-                hello@maou.name.ng
+                daddymaouu@gmail.com
               </a>
             </div>
             <div>
@@ -132,6 +132,14 @@ export default function SiteNav() {
                   className="hover:opacity-60 transition"
                 >
                   GitHub
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/maouknowsjava"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-60 transition"
+                >
+                  LinkedIn
                 </a>
                 <a
                   href="https://t.me/fwmaou"
