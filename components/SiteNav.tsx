@@ -150,12 +150,12 @@ export default function SiteNav() {
                   Telegram
                 </a>
                 <a
-                  href="https://discord.gg/UyHJ5Gcj"
+                  href="https://x.com/fwmaou"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:opacity-60 transition"
                 >
-                  Discord
+                  X
                 </a>
               </div>
             </div>

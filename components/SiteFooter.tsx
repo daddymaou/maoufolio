@@ -51,12 +51,12 @@ export default function SiteFooter() {
             </li>
             <li>
               <a
-                href="https://discord.gg/UyHJ5Gcj"
+                href="https://x.com/fwmaou"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:opacity-60"
               >
-                Discord
+                X
               </a>
             </li>
           </ul>
@@ -87,13 +87,13 @@ export default function SiteFooter() {
       <div className="overflow-hidden border-y border-paper/10">
         <div className="marquee flex whitespace-nowrap">
           <span className="text-[18vw] leading-none font-semibold tracking-tightest pr-12">
-            ᗰᗩOᑌ · Code. Automate. Iterate. ·
+            ᗰᗩOᑌ · 
           </span>
           <span
             className="text-[18vw] leading-none font-semibold tracking-tightest pr-12"
             aria-hidden
           >
-            ᗰᗩOᑌ · Code. Automate. Iterate. ·
+          Code. Automate. Iterate. ·
           </span>
         </div>
       </div>
