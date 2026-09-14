@@ -1,75 +1,40 @@
-<div align="center">
+# ᗰᗩOᑌ 
 
-# ᗰᗩOᑌ.
+My personal site — built with Next.js, TypeScript, and Tailwind CSS.
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=9BB8E6&center=true&vCenter=true&width=600&lines=I+build+digital+experiences;Clean+design+%2B+practical+functionality;Human+%26+distinct+interfaces" alt="Typing SVG" />
+## Run locally
 
-**Full-Stack Developer · AI Systems Engineer · Automation Architect · Digital Product Builder**
+\`\`\`bash
+npm install
+npm run dev
+\`\`\`
 
-</div>
+Open http://localhost:3000.
 
----
+## Scripts
 
-## About
+| Command | Does |
+|---|---|
+| `npm run dev` | Start dev server |
+| `npm run build` | Production build |
+| `npm run start` | Serve the production build |
+| `npm run lint` | Run ESLint |
 
-With **4 years** in the field, I focus on creating interfaces that feel human and distinct, steering clear of passing trends. My work lives at the intersection of programming and design exploration.
+## Structure
 
-Currently exploring experimental web interactions and lightweight digital products. Based in **Nigeria**, willing to collaborate with clients across the globe.
+- `app/` — pages, layout, global styles
+- `components/` — nav, footer, and other shared UI
+- `public/` — images and static assets
 
----
+## Editing content
 
-<!-- PHOTO PLACEHOLDER – replace the src with your own image URL -->
-<div align="center">
+Most copy lives inline in the page/component files — arrays like `roles`,
+`skills`, and `rotatingWords` in `app/page.tsx`, and `navLinks` in
+`components/SiteNav.tsx`. Edit those directly to change what shows up.
 
-<img src="https://files.catbox.moe/n27oqg.jpg" alt="MAOUKNOWSJAVA" width="160" style="border-radius: 40px;" />
+## Contact
 
-<em>— building at the intersection of code & design —</em>
-
-</div>
-
----
-
-## Capabilities
-
-**Frontend**
-- **HTML & CSS** — clean, responsive layouts
-- **JavaScript** — dynamic, interactive experiences
-- **TypeScript / TSX** — typed components, scalable
-- **React** — component-driven development
-
-**Backend & Languages**
-- **Python** — scripting, automation, backend
-- **Java** — robust, OOP applications
-- **C++** — high-performance & system logic
-- **Node.js** — scalable server-side apps
-- **Django** — robust backend frameworks
-
-**Creative & Design**
-- **Creative Development** — custom solutions beyond frameworks
-- **UI/UX Architecture** — from concept to pixel-perfect
-- **Experimental Web** — interactions & lightweight products
-
----
-
-## Get In Touch
-
-<div align="center">
-
-[![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/UyHJ5Gcj)
-[![Telegram](https://img.shields.io/badge/Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/fwmaou)
-[![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/2348154899093)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/daddymaou)
-
-</div>
-
----
-
-<div align="center">
-
-### "Code. Automate. Iterate."
-
-<img src="https://komarev.com/ghpvc/?username=maoukn&color=9BB8E6&style=flat-square&label=visitors" alt="visitors" />
-
-**© 2026 ᗰᗩOᑌ**
-
-</div>
+- GitHub: [daddymaou](https://github.com/daddymaou)
+- LinkedIn: [maouknowsjava](https://www.linkedin.com/in/maouknowsjava)
+- Telegram: [@fwmaou](https://t.me/fwmaou)
+- X: [@fwmaou](https://x.com/fwmaou)

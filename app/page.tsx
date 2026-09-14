@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import Typewriter from "@/components/Typewriter";
 import ScrollFadeText from "@/components/ScrollFadeText";
-import GlitchText from "@/components/GlitchText";
 
 const roles = [
   {
@@ -163,11 +162,8 @@ export default function Home() {
     <section className="pt-6 pb-24">
       {/* ── MOBILE ───────────────────────── */}
       <div className="md:hidden px-6 flex flex-col gap-6">
-        <h1 className="text-[clamp(2.5rem,11.5vw,64px)] font-medium tracking-[-0.2px] leading-[1.0] bg-[#120F17] text-white px-4 py-3 rounded-lg inline-block">
-          hi! i&apos;m{" "}
-          <GlitchText speed={0.8} enableOnHover className="glitch--inline">
-            Maou.
-          </GlitchText>
+        <h1 className="text-[clamp(2.5rem,11.5vw,64px)] font-medium tracking-[-0.2px] leading-[1.0]">
+          hi! i&apos;m Maou.
         </h1>
 
         <div className="flex items-center justify-between">
@@ -233,13 +229,10 @@ export default function Home() {
 
           {/* LEFT — sticky */}
           <aside className="col-span-3 sticky top-[calc(var(--nav-h)+2rem)] self-start flex flex-col gap-6 h-[calc(100vh-var(--nav-h)-3rem)]">
-            <h1 className="text-[clamp(2.5rem,8vw,90px)] font-light tracking-[-0.2px] leading-[1.1] bg-[#120F17] text-white px-5 py-4 rounded-xl inline-block">
+            <h1 className="text-[clamp(2.5rem,8vw,90px)] font-light tracking-[-0.2px] leading-[1.1]">
               hi!
               <br />
-              i&apos;m{" "}
-              <GlitchText speed={0.8} enableOnHover className="glitch--inline">
-                Maou.
-              </GlitchText>
+              i&apos;m Maou.
             </h1>
             <SocialIcons />
             <SkillsList className="mt-auto mb-12" />
