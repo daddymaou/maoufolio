@@ -59,6 +59,12 @@ function Icon({ name }: { name: string }) {
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
         </svg>
       );
+    case "blog":
+      return (
+        <svg {...common}>
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+        </svg>
+      );
     default:
       return null;
   }
@@ -161,6 +167,14 @@ export default function ContactPage() {
           icon="github"
         >
           github.com/daddymaou
+        </ContactRow>
+
+        <ContactRow
+          label="Blog"
+          href="https://maoublog.pxxlspace.cv/"
+          icon="blog"
+        >
+          maoublog.pxxlspace.cv
         </ContactRow>
       </div>
     </section>

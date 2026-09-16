@@ -4,10 +4,11 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const navLinks = [
-  { n: "01", label: "HOME", href: "/" },
-  { n: "02", label: "ABOUT", href: "/about" },
-  { n: "03", label: "WORK", href: "/work" },
-  { n: "04", label: "CONTACT", href: "/contact" },
+  { n: "01", label: "HOME", href: "/", isExternal: false },
+  { n: "02", label: "ABOUT", href: "/about", isExternal: false },
+  { n: "03", label: "WORK", href: "/work", isExternal: false },
+  { n: "04", label: "BLOG", href: "https://maoublog.pxxlspace.cv/", isExternal: true },
+  { n: "05", label: "CONTACT", href: "/contact", isExternal: false },
 ];
 
 export default function SiteNav() {
@@ -35,6 +36,14 @@ export default function SiteNav() {
             <Link href="/work" className="hover:opacity-60 transition">
               WORK
             </Link>
+            <a
+              href="https://maoublog.pxxlspace.cv/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-60 transition"
+            >
+              BLOG
+            </a>
             <Link href="/contact" className="hover:opacity-60 transition">
               CONTACT
             </Link>
@@ -79,27 +88,39 @@ export default function SiteNav() {
           </div>
 
           <nav className="flex flex-col gap-1">
-            {navLinks.map(({ n, label, href }, i) => (
-              <Link
-                key={n}
-                href={href}
-                onClick={() => setOpen(false)}
-                className="flex items-baseline gap-4 group py-1"
-                style={{
-                  opacity: open ? 1 : 0,
-                  transform: open ? "translateY(0)" : "translateY(12px)",
-                  transition: `opacity 0.4s ease, transform 0.4s ease`,
-                  transitionDelay: open ? `${460 + i * 110}ms` : "0ms",
-                }}
-              >
-                <span className="text-[clamp(2.5rem,9vw,5rem)] font-medium leading-[1.1] tracking-tight text-ink/30">
-                  {n}
-                </span>
-                <span className="text-[clamp(2.5rem,9vw,5rem)] font-medium leading-[1.1] tracking-tight group-hover:opacity-60 transition">
-                  {label}
-                </span>
-              </Link>
-            ))}
+            {navLinks.map(({ n, label, href, isExternal }, i) => {
+              const linkProps = isExternal
+                ? {
+                    href,
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  }
+                : { href };
+
+              const Component = isExternal ? "a" : Link;
+
+              return (
+                <Component
+                  key={n}
+                  {...linkProps}
+                  onClick={() => setOpen(false)}
+                  className="flex items-baseline gap-4 group py-1"
+                  style={{
+                    opacity: open ? 1 : 0,
+                    transform: open ? "translateY(0)" : "translateY(12px)",
+                    transition: `opacity 0.4s ease, transform 0.4s ease`,
+                    transitionDelay: open ? `${460 + i * 110}ms` : "0ms",
+                  }}
+                >
+                  <span className="text-[clamp(2.5rem,9vw,5rem)] font-medium leading-[1.1] tracking-tight text-ink/30">
+                    {n}
+                  </span>
+                  <span className="text-[clamp(2.5rem,9vw,5rem)] font-medium leading-[1.1] tracking-tight group-hover:opacity-60 transition">
+                    {label}
+                  </span>
+                </Component>
+              );
+            })}
           </nav>
 
           <div className="flex flex-col gap-5 text-[13px] pb-2">

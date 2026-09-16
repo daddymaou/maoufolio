@@ -24,7 +24,7 @@ export default function SiteFooter() {
                 href="https://github.com/daddymaou"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:opacity-60"
+                className="hover:opacity-60 transition-opacity duration-150"
               >
                 GitHub
               </a>
@@ -34,7 +34,7 @@ export default function SiteFooter() {
                 href="https://www.linkedin.com/in/maouknowsjava"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:opacity-60"
+                className="hover:opacity-60 transition-opacity duration-150"
               >
                 LinkedIn
               </a>
@@ -44,7 +44,7 @@ export default function SiteFooter() {
                 href="https://t.me/fwmaou"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:opacity-60"
+                className="hover:opacity-60 transition-opacity duration-150"
               >
                 Telegram
               </a>
@@ -54,7 +54,7 @@ export default function SiteFooter() {
                 href="https://x.com/fwmaou"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:opacity-60"
+                className="hover:opacity-60 transition-opacity duration-150"
               >
                 X
               </a>
@@ -66,17 +66,27 @@ export default function SiteFooter() {
           <p className="text-xs uppercase opacity-50 mb-4">Sections</p>
           <ul className="space-y-2 text-sm">
             <li>
-              <Link href="/about" className="hover:opacity-60">
+              <Link href="/about" className="hover:opacity-60 transition-opacity duration-150">
                 About
               </Link>
             </li>
             <li>
-              <Link href="/work" className="hover:opacity-60">
+              <Link href="/work" className="hover:opacity-60 transition-opacity duration-150">
                 Work
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:opacity-60">
+              <a
+                href="https://maoublog.pxxlspace.cv/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-60 transition-opacity duration-150"
+              >
+                Blog
+              </a>
+            </li>
+            <li>
+              <Link href="/contact" className="hover:opacity-60 transition-opacity duration-150">
                 Contact
               </Link>
             </li>
@@ -93,7 +103,7 @@ export default function SiteFooter() {
             className="text-[18vw] leading-none font-semibold tracking-tightest pr-12"
             aria-hidden
           >
-          Code. Automate. Iterate. ·
+            Code. Automate. Iterate. ·
           </span>
         </div>
       </div>
