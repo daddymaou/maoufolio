@@ -4,10 +4,10 @@ My personal site — built with Next.js, TypeScript, and Tailwind CSS.
 
 ## Run locally
 
-\`\`\`bash
+```bash
 npm install
 npm run dev
-\`\`\`
+```
 
 Open http://localhost:3000.
 
