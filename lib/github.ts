@@ -214,11 +214,9 @@ async function getLiveGitHubData(token: string): Promise<GitHubPortfolioData> {
 
   const languageCounts = new Map<string, number>();
   for (const repo of allRepos) {
-    if (repo.language) {
-      languageCounts.set(
-        repo.language,
-        (languageCounts.get(repo.language) ?? 0) + 1,
-      );
+    const language = repo.primaryLanguage?.name;
+    if (language) {
+      languageCounts.set(language, (languageCounts.get(language) ?? 0) + 1);
     }
   }
 
