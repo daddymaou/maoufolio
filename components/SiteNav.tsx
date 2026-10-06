@@ -7,7 +7,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 const links = [
   { label: "about", href: "/about" },
   { label: "work", href: "/work" },
-  { label: "blog", href: "https://blog.maou.name.ng", external: true },
+  { label: "blog", href: "/blog" },
   { label: "contact", href: "/contact" },
 ];
 

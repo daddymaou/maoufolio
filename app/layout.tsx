@@ -46,6 +46,9 @@ export const metadata: Metadata = {
   creator: "Maou",
   alternates: {
     canonical: "/",
+    types: {
+      "application/rss+xml": "/blog/feed.xml",
+    },
   },
   openGraph: {
     type: "website",

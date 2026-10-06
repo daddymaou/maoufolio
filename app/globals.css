@@ -531,6 +531,333 @@ button {
   font-size: 0.68rem;
 }
 
+.blog-lane + .blog-lane {
+  margin-top: clamp(2.5rem, 7vw, 4rem);
+}
+
+.blog-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.blog-entry {
+  border-bottom: 1px solid var(--rule);
+  transition: opacity 350ms ease;
+}
+
+.blog-entry-link {
+  display: block;
+  padding-block: clamp(1.1rem, 3vw, 1.6rem);
+}
+
+.blog-entry-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
+  color: var(--muted);
+}
+
+.blog-entry-title {
+  margin: 0.3rem 0 0;
+  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+  font-weight: 350;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  transition: font-style 200ms ease;
+}
+
+.blog-entry-description {
+  max-width: 38rem;
+  margin-top: 0.3rem;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.blog-empty {
+  padding-block: 1.1rem;
+  border-bottom: 1px solid var(--rule);
+  color: var(--muted);
+  font-style: italic;
+}
+
+.blog-feed-link {
+  margin-top: 2.25rem;
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
+  margin-top: 1.5rem;
+  color: var(--muted);
+}
+
+.blog-post .blog-prose {
+  margin-top: clamp(2.5rem, 6vw, 3.5rem);
+}
+
+.blog-prose {
+  max-width: 43rem;
+  font-size: clamp(1.1rem, 2.2vw, 1.28rem);
+  line-height: 1.62;
+  text-wrap: pretty;
+}
+
+.blog-prose > * + * {
+  margin-top: 1.35em;
+}
+
+.blog-prose h2 {
+  margin-top: 2.4em;
+  margin-bottom: 0;
+  font-size: clamp(1.6rem, 3.6vw, 2.1rem);
+  font-weight: 350;
+  line-height: 1.14;
+  letter-spacing: -0.025em;
+}
+
+.blog-prose h3 {
+  margin-top: 2em;
+  margin-bottom: 0;
+  font-size: clamp(1.3rem, 3vw, 1.55rem);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+.blog-prose ul,
+.blog-prose ol {
+  padding-left: 1.35em;
+}
+
+.blog-prose li + li {
+  margin-top: 0.5em;
+}
+
+.blog-prose li::marker {
+  color: var(--muted);
+}
+
+.blog-prose blockquote {
+  padding-left: 1.1rem;
+  border-left: 1px solid var(--rule);
+  color: var(--muted);
+  font-style: italic;
+}
+
+.blog-prose strong {
+  font-weight: 600;
+}
+
+.blog-prose code {
+  padding: 0.12em 0.32em;
+  background: color-mix(in srgb, var(--fg) 8%, transparent);
+  font-family: var(--font-ibm-plex-mono), "SFMono-Regular", Consolas, monospace;
+  font-size: 0.82em;
+}
+
+.blog-prose img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* The wordmark tiles arrive as one paragraph holding only images. */
+.blog-prose p:has(> img:only-child) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.blog-prose p:has(> img:only-child) img {
+  width: 3.25rem;
+}
+
+.blog-prose input[type="checkbox"] {
+  width: 0.95em;
+  height: 0.95em;
+  margin-right: 0.45em;
+  accent-color: var(--fg);
+  vertical-align: baseline;
+}
+
+.blog-prose li:has(> input[type="checkbox"]) {
+  list-style: none;
+  margin-left: -1.35em;
+  padding-left: 1.35em;
+}
+
+.code-block {
+  position: relative;
+  margin-block: 1.75em;
+  background: color-mix(in srgb, var(--fg) 94%, transparent);
+  color: var(--bg);
+}
+
+.code-block-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.45rem 0.35rem 0.45rem 0.9rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--bg) 22%, transparent);
+  color: color-mix(in srgb, var(--bg) 72%, transparent);
+}
+
+.code-block-copy {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.4rem 0.55rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: color 200ms ease;
+}
+
+.code-block-copy:hover {
+  color: var(--bg);
+}
+
+.code-block-body {
+  margin: 0;
+  padding: 0.95rem 0.9rem 1.1rem;
+  overflow-x: auto;
+  font-family: var(--font-ibm-plex-mono), "SFMono-Regular", Consolas, monospace;
+  font-size: 0.82rem;
+  line-height: 1.65;
+  tab-size: 2;
+}
+
+.code-block-body code {
+  padding: 0;
+  background: transparent;
+  font-size: inherit;
+}
+
+.code-block-feedback {
+  position: absolute;
+  top: 0.5rem;
+  right: 3.4rem;
+  color: color-mix(in srgb, var(--bg) 72%, transparent);
+}
+
+.post-pagination {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 0 2rem;
+  margin-top: clamp(3rem, 8vw, 5rem);
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--rule);
+}
+
+.post-pagination-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-block: 0.85rem;
+  color: var(--muted);
+}
+
+.post-pagination-link.is-older {
+  text-align: right;
+}
+
+.post-pagination-title {
+  color: var(--fg);
+  text-wrap: balance;
+  transition: font-style 200ms ease;
+}
+
+@media (hover: hover) {
+  .blog-list:has(.blog-entry:hover) .blog-entry:not(:hover) {
+    opacity: 0.32;
+  }
+
+  .blog-entry:hover .blog-entry-title,
+  .post-pagination-link:hover .post-pagination-title {
+    font-style: italic;
+  }
+}
+
+@media (max-width: 38rem) {
+  .post-pagination {
+    grid-template-columns: 1fr;
+  }
+
+  .post-pagination-link.is-older {
+    text-align: left;
+  }
+}
+
+@media print {
+  .site-header,
+  .site-footer,
+  .mobile-controls,
+  .post-pagination,
+  .blog-feed-link,
+  .code-block-copy,
+  .code-block-feedback,
+  .skip-link {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+  }
+
+  .page-wrap {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+
+  .blog-prose {
+    max-width: none;
+    font-size: 11pt;
+  }
+
+  .page-intro h1 {
+    font-size: 22pt;
+  }
+
+  .blog-prose a {
+    text-decoration: underline;
+  }
+
+  .blog-prose a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    word-break: break-all;
+  }
+
+  .code-block {
+    background: #fff;
+    color: #000;
+    border: 1px solid #999;
+    break-inside: avoid;
+  }
+
+  .code-block-head {
+    color: #000;
+    border-bottom-color: #999;
+  }
+
+  .code-block-body {
+    white-space: pre-wrap;
+  }
+
+  h2,
+  h3,
+  .code-block,
+  img {
+    break-inside: avoid;
+  }
+}
+
 .wordmark {
   flex: none;
   font-family: var(--font-syllabics), "Noto Sans Canadian Aboriginal",

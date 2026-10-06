@@ -42,10 +42,36 @@ Page copy and project data are separated into one file per section:
 - `content/github.ts` — repository exclusions and display overrides
 - `content/footer.ts` — footer copy
 - `content/not-found.ts` — 404 page copy
+- `content/blog.ts` — blog index labels
+- `content/blog/*.md` — blog posts
 
 Social profile rows without a known URL are intentionally shown as “Add profile
 link.” Replace the placeholder handle and set the corresponding `href` in
 `content/contact.ts` when the profile is ready.
+
+## Writing
+
+Blog posts are markdown files in `content/blog/`. Each one carries frontmatter:
+
+```yaml
+---
+title: "The og meta tag, done properly"
+description: "Why your link previews show up blank, and the small set of tags that fixes it."
+category: professional
+date: 2026-09-24
+draft: false
+---
+```
+
+- `category` must be `professional` or `personal` — the index groups by it.
+- `draft: true` keeps a post out of the index, the sitemap, and the feed.
+- The filename is the URL, so `og-meta-tags.md` is served at `/blog/og-meta-tags`.
+
+Reading time and word count are derived from the body at build time, so there is
+nothing to maintain by hand. Posts ship their own social card,
+`public/images/blog-og-image.jpg`, and declare `og:type="article"` with a
+published time, so shared links never render as the portfolio page. The feed
+lives at `/blog/feed.xml`.
 
 ## Structure
 
@@ -54,8 +80,10 @@ link.” Replace the placeholder handle and set the corresponding `href` in
 - `content/` — editable page content
 - `data/github.snapshot.json` — committed GitHub fallback
 - `lib/github.ts` — server-only GitHub GraphQL integration
+- `lib/blog.ts` — markdown post loading, reading time, and slug helpers
 - `public/favicon.jpg` — existing favicon
-- `public/images/just-ask-maou.jpg` — social preview image
+- `public/images/just-ask-maou.jpg` — portfolio social preview image
+- `public/images/blog-og-image.jpg` — blog social preview image
 
 ## Deployment
 
