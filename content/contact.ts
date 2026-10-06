@@ -24,7 +24,6 @@ export const contactContent = {
     { label: "Telegram", handle: "fwmaou", href: "https://t.me/fwmaou" },
     { label: "X", handle: "fwmaou", href: "https://x.com/fwmaou" },
     { label: "CodePen", handle: "Daddy Maou", href: "https://codepen.io/daddymaou" },
-    { label: "Stack Overflow", handle: "Add profile link", href: null },
     { label: "Whatsapp", handle: "Daddymaou", href:"https://wa.me/2348154899093" },
     { label: "PyPi", handle: "Daddymaou", href: "https://pypi.org/user/daddymaou/" },
     { label: "npm", handle: "Daddy Maou", href: "https://npmjs.com/daddymaou" },
