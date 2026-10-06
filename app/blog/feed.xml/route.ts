@@ -14,7 +14,7 @@ function escapeXml(value: string): string {
     .replace(/'/g, "&apos;");
 }
 
-export function revalidate = 3600;
+export const revalidate = 3600;
 
 export function GET() {
   const posts = getAllPosts();
