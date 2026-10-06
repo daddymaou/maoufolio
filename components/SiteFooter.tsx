@@ -1,116 +1,34 @@
-import Link from "next/link";
+import { contactContent } from "@/content/contact";
+import { footerContent } from "@/content/footer";
 
 export default function SiteFooter() {
   return (
-    <footer className="mt-24 bg-ink text-paper">
-      <div className="px-8 md:px-12 pt-16 pb-12 grid grid-cols-1 md:grid-cols-12 gap-10">
-        <div className="md:col-span-6 space-y-6">
-          <p className="text-sm uppercase tracking-wide opacity-90">
-            Building at the intersection of code & design
-          </p>
-          <a
-            href="mailto:daddymaouu@gmail.com"
-            className="block text-sm uppercase tracking-wide border-b border-paper/60 pb-1 w-fit"
-          >
-            daddymaouu@gmail.com
-          </a>
-        </div>
-
-        <div className="md:col-span-3">
-          <p className="text-xs uppercase opacity-50 mb-4">Social</p>
-          <ul className="space-y-2 text-sm">
-            <li>
-              <a
-                href="https://github.com/daddymaou"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-60 transition-opacity duration-150"
-              >
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/maouknowsjava"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-60 transition-opacity duration-150"
-              >
-                LinkedIn
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://t.me/fwmaou"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-60 transition-opacity duration-150"
-              >
-                Telegram
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://x.com/fwmaou"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-60 transition-opacity duration-150"
-              >
-                X
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="md:col-span-3">
-          <p className="text-xs uppercase opacity-50 mb-4">Sections</p>
-          <ul className="space-y-2 text-sm">
-            <li>
-              <Link href="/about" className="hover:opacity-60 transition-opacity duration-150">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/work" className="hover:opacity-60 transition-opacity duration-150">
-                Work
-              </Link>
-            </li>
-            <li>
-              <a
-                href="https://maoublog.pxxlspace.cv/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-60 transition-opacity duration-150"
-              >
-                Blog
-              </a>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:opacity-60 transition-opacity duration-150">
-                Contact
-              </Link>
-            </li>
-          </ul>
-        </div>
+    <footer className="site-footer wrap mono">
+      <div className="footer-main">
+        <span>© {new Date().getFullYear()} Maou</span>
+        <span className="footer-tagline">{footerContent.tagline}</span>
+        <a className="link footer-top" href="#top">
+          {footerContent.backToTop}
+        </a>
       </div>
-
-      <div className="overflow-hidden border-y border-paper/10">
-        <div className="marquee flex whitespace-nowrap">
-          <span className="text-[18vw] leading-none font-semibold tracking-tightest pr-12">
-            ᗰᗩOᑌ · 
-          </span>
-          <span
-            className="text-[18vw] leading-none font-semibold tracking-tightest pr-12"
-            aria-hidden
-          >
-            Code. Automate. Iterate. ·
-          </span>
-        </div>
-      </div>
-
-      <div className="px-8 md:px-12 py-6 flex items-center justify-between text-xs opacity-70">
-        <span>Code. Automate. Iterate.</span>
-        <span>ᗰᗩOᑌ</span>
+      <div className="footer-bottom">
+        <p>{footerContent.inspiration}</p>
+        <nav className="footer-socials" aria-label="Social links">
+          {contactContent.socials.map(
+            ({ label, href }) =>
+              href && (
+                <a
+                  className="link"
+                  href={href}
+                  key={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {label}
+                </a>
+              ),
+          )}
+        </nav>
       </div>
     </footer>
   );
