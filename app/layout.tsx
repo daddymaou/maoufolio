@@ -1,31 +1,52 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import {
+  IBM_Plex_Mono,
+  Newsreader,
+  Noto_Sans_Canadian_Aboriginal,
+} from "next/font/google";
 import "./globals.css";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
-import SmoothScroll from "@/components/SmoothScroll";
+import PageTransition from "@/components/PageTransition";
 
-const inter = Inter({
+const newsreader = Newsreader({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-newsreader",
+  display: "swap",
+  axes: ["opsz"],
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-ibm-plex-mono",
+  display: "swap",
+});
+
+const syllabics = Noto_Sans_Canadian_Aboriginal({
+  subsets: ["canadian-aboriginal"],
+  variable: "--font-syllabics",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Maou — Creative Developer",
+  title: {
+    default: "Maou — Creative Developer",
+    template: "%s — Maou",
+  },
   description:
-    "ᗰᗩOᑌ · Full-stack developer & creative technologist. Building digital experiences at the intersection of code and design. Based in Nigeria.",
+    "Maou is a creative developer based in Nigeria, making thoughtful digital experiences and useful products.",
   keywords: [
     "Maou",
     "Musa Usman",
-    "full-stack developer",
     "creative developer",
     "Nigeria",
-    "web development",
-    "UI/UX",
   ],
   authors: [{ name: "Maou" }],
   creator: "Maou",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -33,13 +54,11 @@ export const metadata: Metadata = {
     siteName: "Maou",
     title: "Maou — Creative Developer",
     description:
-      "ᗰᗩOᑌ · Full-stack developer & creative technologist. Building digital experiences at the intersection of code and design.",
+      "Thoughtful digital experiences and useful products, made by Maou.",
     images: [
       {
-        url: "/favicon.jpg",
-        width: 800,
-        height: 800,
-        alt: "Maou",
+        url: "/images/just-ask-maou.jpg",
+        alt: "Maou — Creative Developer",
       },
     ],
   },
@@ -47,8 +66,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Maou — Creative Developer",
     description:
-      "ᗰᗩOᑌ · Full-stack developer & creative technologist. Based in Nigeria.",
-    images: ["/favicon.jpg"],
+      "Thoughtful digital experiences and useful products, made by Maou.",
+    images: ["/images/just-ask-maou.jpg"],
   },
   icons: {
     icon: "/favicon.jpg",
@@ -65,13 +84,44 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={inter.variable}
-      style={{ ["--nav-h" as string]: "4.5rem" }}
+      className={`${newsreader.variable} ${ibmPlexMono.variable} ${syllabics.variable}`}
+      suppressHydrationWarning
     >
-      <body className="font-sans text-ink bg-paper min-h-screen flex flex-col">
-        <SmoothScroll />
+      <head>
+        <meta name="theme-color" content="#f2f0ea" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(() => {
+              let savedTheme = null;
+              try {
+                savedTheme = localStorage.getItem("maou-theme");
+              } catch (error) {
+                console.warn("Unable to read the saved theme preference.", error);
+              }
+              const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+              const isDark = savedTheme === "dark" || (savedTheme !== "light" && prefersDark);
+              const root = document.documentElement;
+              root.classList.toggle("dark", isDark);
+              const color = isDark ? "#10100f" : "#f2f0ea";
+              let meta = document.querySelector('meta[name="theme-color"]');
+              if (!meta) {
+                meta = document.createElement("meta");
+                meta.setAttribute("name", "theme-color");
+                document.head.append(meta);
+              }
+              meta.setAttribute("content", color);
+            })();`,
+          }}
+        />
+      </head>
+      <body className="site-body">
+        <a className="skip-link mono" href="#main">
+          Skip to content
+        </a>
         <SiteNav />
-        <main className="flex-1">{children}</main>
+        <main id="main" className="site-main">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <SiteFooter />
       </body>
     </html>
