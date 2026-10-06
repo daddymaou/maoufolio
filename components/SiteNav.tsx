@@ -83,23 +83,11 @@ export default function SiteNav() {
       <header className="site-header wrap" id="top">
         <Wordmark />
         <nav className="site-nav desktop-nav mono" aria-label="Main navigation">
-          {links.map(({ label, href, external }) =>
-            external ? (
-              <a
-                className="link"
-                href={href}
-                key={label}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {label}
-              </a>
-            ) : (
-              <Link className="link" href={href} key={label}>
-                {label}
-              </Link>
-            ),
-          )}
+          {links.map(({ label, href }) => (
+            <Link className="link" href={href} key={label}>
+              {label}
+            </Link>
+          ))}
           <ThemeToggle />
         </nav>
         <div className="mobile-controls">
@@ -140,27 +128,11 @@ export default function SiteNav() {
           </button>
         </div>
         <nav className="mobile-menu-links" aria-label="Mobile navigation">
-          {links.map(({ label, href, external }) =>
-            external ? (
-              <a
-                href={href}
-                key={label}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={closeMenu}
-              >
-                {label}
-              </a>
-            ) : (
-              <Link
-                href={href}
-                key={label}
-                onClick={closeMenu}
-              >
-                {label}
-              </Link>
-            ),
-          )}
+          {links.map(({ label, href }) => (
+            <Link href={href} key={label} onClick={closeMenu}>
+              {label}
+            </Link>
+          ))}
         </nav>
         <p className="mobile-menu-note mono">Nigeria · available for work</p>
       </div>
