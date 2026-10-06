@@ -1,195 +1,169 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import ThemeToggle from "@/components/ThemeToggle";
 
-const navLinks = [
-  { n: "01", label: "HOME", href: "/", isExternal: false },
-  { n: "02", label: "ABOUT", href: "/about", isExternal: false },
-  { n: "03", label: "WORK", href: "/work", isExternal: false },
-  { n: "04", label: "BLOG", href: "https://maoublog.pxxlspace.cv/", isExternal: true },
-  { n: "05", label: "CONTACT", href: "/contact", isExternal: false },
+const links = [
+  { label: "about", href: "/about" },
+  { label: "work", href: "/work" },
+  { label: "blog", href: "https://blog.maou.name.ng", external: true },
+  { label: "contact", href: "/contact" },
 ];
 
+function Wordmark({ onClick }: { onClick?: () => void }) {
+  return (
+    <Link
+      href="/"
+      className="wordmark"
+      aria-label="Maou home"
+      onClick={onClick}
+    >
+      <span aria-hidden="true">ᗰᗩOᑌ</span>
+    </Link>
+  );
+}
+
 export default function SiteNav() {
-  const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    if (!menuOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    menuRef.current?.querySelector<HTMLElement>("button.menu-close")?.focus();
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setMenuOpen(false);
+        menuButtonRef.current?.focus();
+        return;
+      }
+
+      if (event.key !== "Tab" || !menuRef.current) return;
+
+      const focusable = Array.from(
+        menuRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((element) => element.getClientRects().length > 0);
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (!menuRef.current.contains(document.activeElement)) {
+        event.preventDefault();
+        (event.shiftKey ? last : first)?.focus();
+      } else if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last?.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first?.focus();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [open]);
+  }, [menuOpen]);
+
+  function closeMenu() {
+    setMenuOpen(false);
+    menuButtonRef.current?.focus();
+  }
 
   return (
     <>
-      <header className="relative z-50 px-6 md:px-12 py-6 flex items-center justify-between">
-        <Link href="/" className="text-[16px] font-semibold tracking-wide">
-          ᗰᗩOᑌ
-        </Link>
-
-        <div className="flex items-center gap-8">
-          <nav className="hidden md:flex items-center gap-8 text-[16px] font-medium">
-            <Link href="/about" className="hover:opacity-60 transition">
-              ABOUT
-            </Link>
-            <Link href="/work" className="hover:opacity-60 transition">
-              WORK
-            </Link>
-            <a
-              href="https://maoublog.pxxlspace.cv/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-60 transition"
-            >
-              BLOG
-            </a>
-            <Link href="/contact" className="hover:opacity-60 transition">
-              CONTACT
-            </Link>
-          </nav>
-
+      <header className="site-header wrap" id="top">
+        <Wordmark />
+        <nav className="site-nav desktop-nav mono" aria-label="Main navigation">
+          {links.map(({ label, href, external }) =>
+            external ? (
+              <a
+                className="link"
+                href={href}
+                key={label}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {label}
+              </a>
+            ) : (
+              <Link className="link" href={href} key={label}>
+                {label}
+              </Link>
+            ),
+          )}
+          <ThemeToggle />
+        </nav>
+        <div className="mobile-controls">
+          <ThemeToggle />
           <button
-            aria-label="Open menu"
-            onClick={() => setOpen(true)}
-            className="flex flex-col gap-[5px]"
+            ref={menuButtonRef}
+            className="menu-open mono"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            onClick={() => setMenuOpen(true)}
           >
-            <span className="block w-5 h-px bg-ink" />
-            <span className="block w-5 h-px bg-ink" />
+            menu
           </button>
         </div>
       </header>
 
-      {/* slide-down panel */}
       <div
-        className={`fixed top-0 left-0 right-0 z-[200] bg-paper shadow-[0_4px_24px_rgba(0,0,0,0.08)] transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
-          open ? "translate-y-0" : "-translate-y-full"
-        }`}
+        ref={menuRef}
+        className={`mobile-menu${menuOpen ? " is-open" : ""}`}
+        id="mobile-menu"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
+        aria-hidden={!menuOpen}
+        inert={!menuOpen}
       >
-        <div className="px-6 md:px-12 py-6 flex flex-col gap-8">
-          <div className="flex items-center justify-between">
-            <span className="text-[16px] font-semibold tracking-wide">ᗰᗩOᑌ</span>
-            <button
-              aria-label="Close menu"
-              onClick={() => setOpen(false)}
-              className="hover:opacity-60 transition"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                width="22"
-                height="22"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                fill="none"
-              >
-                <path d="M18 6 6 18M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-
-          <nav className="flex flex-col gap-1">
-            {navLinks.map(({ n, label, href, isExternal }, i) => {
-              const linkProps = isExternal
-                ? {
-                    href,
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                  }
-                : { href };
-
-              const Component = isExternal ? "a" : Link;
-
-              return (
-                <Component
-                  key={n}
-                  {...linkProps}
-                  onClick={() => setOpen(false)}
-                  className="flex items-baseline gap-4 group py-1"
-                  style={{
-                    opacity: open ? 1 : 0,
-                    transform: open ? "translateY(0)" : "translateY(12px)",
-                    transition: `opacity 0.4s ease, transform 0.4s ease`,
-                    transitionDelay: open ? `${460 + i * 110}ms` : "0ms",
-                  }}
-                >
-                  <span className="text-[clamp(2.5rem,9vw,5rem)] font-medium leading-[1.1] tracking-tight text-ink/30">
-                    {n}
-                  </span>
-                  <span className="text-[clamp(2.5rem,9vw,5rem)] font-medium leading-[1.1] tracking-tight group-hover:opacity-60 transition">
-                    {label}
-                  </span>
-                </Component>
-              );
-            })}
-          </nav>
-
-          <div className="flex flex-col gap-5 text-[13px] pb-2">
-            <div>
-              <p className="uppercase tracking-widest text-[11px] text-ink/40 mb-1">
-                Location
-              </p>
-              <p className="font-light">Nigeria</p>
-            </div>
-            <div>
-              <p className="uppercase tracking-widest text-[11px] text-ink/40 mb-1">
-                Email
-              </p>
-              <a
-                href="mailto:daddymaouu@gmail.com"
-                className="font-light hover:opacity-60 transition"
-              >
-                daddymaouu@gmail.com
-              </a>
-            </div>
-            <div>
-              <p className="uppercase tracking-widest text-[11px] text-ink/40 mb-1">
-                Social
-              </p>
-              <div className="flex gap-5 font-light">
-                <a
-                  href="https://github.com/daddymaou"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:opacity-60 transition"
-                >
-                  GitHub
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/maouknowsjava"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:opacity-60 transition"
-                >
-                  LinkedIn
-                </a>
-                <a
-                  href="https://t.me/fwmaou"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:opacity-60 transition"
-                >
-                  Telegram
-                </a>
-                <a
-                  href="https://x.com/fwmaou"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:opacity-60 transition"
-                >
-                  X
-                </a>
-              </div>
-            </div>
-          </div>
+        <div className="mobile-menu-head">
+          <Wordmark onClick={closeMenu} />
+          <button
+            className="menu-close mono"
+            type="button"
+            aria-label="Close navigation menu"
+            onClick={closeMenu}
+          >
+            close
+          </button>
         </div>
+        <nav className="mobile-menu-links" aria-label="Mobile navigation">
+          {links.map(({ label, href, external }) =>
+            external ? (
+              <a
+                href={href}
+                key={label}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMenu}
+              >
+                {label}
+              </a>
+            ) : (
+              <Link
+                href={href}
+                key={label}
+                onClick={closeMenu}
+              >
+                {label}
+              </Link>
+            ),
+          )}
+        </nav>
+        <p className="mobile-menu-note mono">Nigeria · available for work</p>
       </div>
-
-      {open && (
-        <div
-          className="fixed inset-0 z-[199] bg-ink/20"
-          onClick={() => setOpen(false)}
-        />
-      )}
     </>
   );
 }
