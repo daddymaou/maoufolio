@@ -7,7 +7,7 @@ date: 2026-09-17
 
 ![M](https://files.catbox.moe/mk5kmj.jpg)![A](https://files.catbox.moe/hqhecs.jpg)![O](https://files.catbox.moe/h12uu2.jpg)![U](https://files.catbox.moe/fqzy7r.jpg)
 
-Most design systems try way too hard to be squeaky clean. They strip out all the soul until every site ends up looking like a generic SaaS platform trying to sell you enterprise software.
+Most design systems try way too hard to be squeaky clean. They strip out all the soul until every site ends up looking like a generic SaaS platform trying to sell you enterprise software. 
 
 Personally? I prefer the visual grit: high contrast, heavy ink, and pure digital noise.
 
@@ -17,9 +17,9 @@ When you're first getting into web development, the entire tech stack feels like
 
 ![Shikamaru - What a drag](https://files.catbox.moe/n6kjam.jpg)
 
-Most days the reaction is just pure fatigue. *What a drag.*
+Most days the reaction is just pure fatigue. *What a drag.* 
 
-You end up burning through your laptop battery trying to debug centered elements, staring at blank screens, and wondering why on earth plain HTML takes so much emotional effort just to look decent.
+You end up burning through your laptop battery trying to debug centered elements, staring at blank screens, and wondering why on earth plain HTML takes so much emotional effort just to look decent. 
 
 ![ASCII Terminal Art](https://files.catbox.moe/fxv2sm.png)
 

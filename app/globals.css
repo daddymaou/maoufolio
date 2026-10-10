@@ -656,22 +656,31 @@ button {
   font-size: 0.82em;
 }
 
+/* Images fit the column: never upscaled past their own size, never overflowing. */
 .blog-prose img {
   display: block;
-  width: 100%;
+  max-width: 100%;
   height: auto;
+  margin-inline: auto;
 }
 
-/* The wordmark tiles arrive as one paragraph holding only images. */
-.blog-prose p:has(> img:only-child) {
+/* The wordmark tiles arrive as one paragraph holding a run of images. */
+.blog-prose p:has(> img + img),
+.blog-prose div:has(> img + img) {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
   gap: 0.5rem;
 }
 
-.blog-prose p:has(> img:only-child) img {
+.blog-prose p:has(> img + img) img,
+.blog-prose div:has(> img + img) img {
+  flex: none;
   width: 3.25rem;
+  height: 3.25rem;
+  margin-inline: 0;
+  object-fit: cover;
 }
 
 .blog-prose input[type="checkbox"] {
