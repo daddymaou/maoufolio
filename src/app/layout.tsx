@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://maou.name.ng',
     siteName: 'Maou',
-    images: [{ url: '/images/just-ask-maou.jpg', width: 1200, height: 630, alt: 'Maou'"'"'s header image' }],
+    images: [{ url: '/images/just-ask-maou.jpg', width: 1200, height: 630, alt: "Maou's header image" }],
   },
   twitter: {
     card: 'summary_large_image',

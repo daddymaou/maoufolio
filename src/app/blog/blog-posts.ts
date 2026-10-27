@@ -40,7 +40,7 @@ export function getBlogPostBySlug(slug: string): BlogPost | undefined {
     if (file.endsWith('.md')) {
       const filePath = path.join(blogDirectory, file);
       const fileContent = fs.readFileSync(filePath, 'utf-8');
-      const { data } = matter(fileContent);
+      const { data, content } = matter(fileContent);
       if (path.basename(file, '.md') === slug) {
         return {
           slug,
@@ -48,7 +48,7 @@ export function getBlogPostBySlug(slug: string): BlogPost | undefined {
           description: data.description,
           category: data.category,
           date: data.date,
-          content: fileContent,
+          content: content,
         };
       }
     }

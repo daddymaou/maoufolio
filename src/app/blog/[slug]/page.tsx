@@ -2,7 +2,7 @@
 import SiteNav from '@/components/SiteNav';
 import { getBlogPostBySlug, getSortedPosts } from './blog-posts';
 
-export default function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const currentPost = getBlogPostBySlug(slug);
   const allPosts = getSortedPosts();

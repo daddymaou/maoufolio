@@ -31,7 +31,7 @@ export default function BlogPage() {
           {posts.map((post) => (
             <Link
               key={post.slug}
-              href={'\/blog/' + post.slug}
+              href={'/blog/' + post.slug}
               className="block group"
             >
               <div className="border-b border-stone-200 pb-6">

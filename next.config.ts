@@ -7,7 +7,9 @@ const nextConfig: NextConfig = {
       { hostname: "*.githubusercontent.com" },
     ],
   },
-  devIndicators: false,
+  devIndicators: {
+    buildActivity: false,
+  },
 };
 
 export default nextConfig;
