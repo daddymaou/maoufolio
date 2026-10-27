@@ -2,13 +2,26 @@
 
 import { useEffect, useState } from 'react';
 
-interface ContributionYear {
-  totalContributions: number;
-  weeks: { contributionCounts: number[]; firstDay: number }[];
+interface ContributionDay {
+  date: string;
+  count: number;
+  level: number;
 }
 
+interface ContributionWeek {
+  days: ContributionDay[];
+  year: number;
+}
+
+interface ContributionsResponse {
+  total: Record<string, number>;
+  contributions: ContributionWeek[];
+}
+
+const LEVEL_COLORS = ['#ebe8e3', '#d6d3d1', '#a8a29e', '#78716c', '#44403c'];
+
 export default function GitHubContribution() {
-  const [data, setData] = useState<ContributionYear | null>(null);
+  const [data, setData] = useState<ContributionsResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const username = 'daddymaou';
@@ -17,16 +30,15 @@ export default function GitHubContribution() {
     async function fetchContributions() {
       try {
         const res = await fetch(
-          `https://api.github.com/users/${username}/contributions?per_page=5`
+          `https://github-contributions-api.kawarimidoll.deno.net/${username}`
         );
         if (!res.ok) {
           setError('Failed to load contribution data');
-          setLoading(false);
           return;
         }
-        const contributionData: ContributionYear = await res.json();
+        const contributionData: ContributionsResponse = await res.json();
         setData(contributionData);
-      } catch (err) {
+      } catch {
         setError('Failed to fetch contribution data');
       } finally {
         setLoading(false);
@@ -50,28 +62,34 @@ export default function GitHubContribution() {
     );
   }
 
-  const weekBlocks = data.weeks.flatMap((week, weekIndex) => {
-    const counts = week.contributionCounts;
-    return counts.map((count, dayIndex) => {
-      const contributionClass = count <= 0 ? '' : `bg-gold-600 ${count <= 2 ? 'opacity-50' : ''}`;
-      return (
-        <div
-          key={`${weekIndex}-${dayIndex}`}
-          className="w-5 h-5 rounded-sm"
-          style={{ backgroundColor: contributionClass }}
-          title={`Week ${weekIndex + 1}, Day ${dayIndex + 1}: ${count} contribution(s)`}
-        />
-      );
-    });
-  });
+  const total = Object.values(data.total).reduce((sum, n) => sum + n, 0);
 
   return (
     <div className="mt-8">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-sm font-mono text-stone-500 uppercase tracking-widest">GitHub</h3>
-        <span className="text-sm text-stone-400">@{username}</span>
+        <span className="text-sm text-stone-400">
+          @{username} &middot; {total.toLocaleString()} contributions
+        </span>
       </div>
-      <div className="flex gap-1">{weekBlocks}</div>
+      <div className="overflow-x-auto">
+        <div className="flex gap-1">
+          {data.contributions.map((week, weekIndex) => (
+            <div key={weekIndex} className="flex flex-col gap-1">
+              {week.days.map((day) => (
+                <div
+                  key={day.date}
+                  className="w-3 h-3 rounded-sm"
+                  style={{
+                    backgroundColor: LEVEL_COLORS[day.level] ?? LEVEL_COLORS[0],
+                  }}
+                  title={`${day.date}: ${day.count} contribution(s)`}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

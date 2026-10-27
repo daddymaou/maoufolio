@@ -23,7 +23,7 @@ export default function Footer({ image = '/footer_image.jpeg', alt = 'Footer ima
             <p className="text-sm text-stone-600 mt-2">Daddy Maou's Portfolio</p>
           </div>
           <div className="text-center md:text-right text-sm text-stone-500">
-            <p>� 2026 Maou</p>
+            <p>&copy; 2026 Maou</p>
             <p className="text-xs text-stone-400 mt-1">Code | Automate | Iterate</p>
           </div>
         </div>

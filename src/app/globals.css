@@ -1,44 +1,49 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 /* Apoc Font Face Declarations */
 @font-face {
   font-family: 'Apoc-Normal-Trial';
-  src: url('/src/assets/Apoc-Normal-Trial-Regular.otf') format('opentype');
+  src: url('../assets/assets/apoc-trial/Apoc-Normal-Trial-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Apoc-Normal-Trial';
-  src: url('/src/assets/Apoc-Normal-Trial-Bold.otf') format('opentype');
+  src: url('../assets/assets/apoc-trial/Apoc-Normal-Trial-Bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Apoc-Revelations-Trial';
-  src: url('/src/assets/Apoc-Revelations-Trial-Regular.otf') format('opentype');
+  src: url('../assets/assets/apoc-trial/Apoc-Revelations-Trial-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Apoc-Revelations-Trial';
-  src: url('/src/assets/Apoc-Revelations-Trial-Bold.otf') format('opentype');
+  src: url('../assets/assets/apoc-trial/Apoc-Revelations-Trial-Bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Apoc-Sans-Trial';
-  src: url('/src/assets/Apoc-Sans-Trial-Light.otf') format('opentype');
+  src: url('../assets/assets/apoc-trial/Apoc-Sans-Trial-Light.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Apoc-Sans-Trial';
-  src: url('/src/assets/Apoc-Sans-Trial-Regular.otf') format('opentype');
+  src: url('../assets/assets/apoc-trial/Apoc-Sans-Trial-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
@@ -77,7 +82,7 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Apoc-Revelations Trial', 'sans-serif';
+  font-family: 'Apoc-Revelations-Trial', 'sans-serif';
 }
 
 .mono {

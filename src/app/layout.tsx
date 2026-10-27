@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from 'next';
+import './globals.css';
 import SiteNav from '@/components/SiteNav';
 import Footer from '@/components/Footer';
 import GitHubContribution from '@/components/GitHubContribution';
