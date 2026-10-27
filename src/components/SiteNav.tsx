@@ -20,7 +20,8 @@ export default function SiteNav() {
   }, []);
 
   return (
-    <header className={ixed top-0 left-0 right-0 z-50 transition-all duration-300 }>
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+
       <nav className="max-w-6xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
           <div className="w-8 h-8 rounded-lg bg-gold-600 flex items-center justify-center text-white font-display text-sm font-bold">Ma</div>

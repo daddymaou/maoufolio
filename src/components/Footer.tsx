@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Footer({ image, alt }: { image: string; alt: string }) {
+export default function Footer({ image = '/footer_image.jpeg', alt = 'Footer image' }: { image?: string; alt?: string }) {
   return (
     <footer className="relative w-full bg-white">
       <Image

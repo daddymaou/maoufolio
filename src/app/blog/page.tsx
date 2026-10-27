@@ -1,6 +1,5 @@
 ﻿import Link from 'next/link';
 import Image from 'next/image';
-import SiteNav from '@/components/SiteNav';
 import { getSortedPosts } from './blog-posts';
 
 export default function BlogPage() {
@@ -8,7 +7,6 @@ export default function BlogPage() {
 
   return (
     <>
-      <SiteNav />
       <header className="relative w-full h-[50vh] min-h-[400px] flex items-center justify-center">
         <Image
           src="/images/just-ask-maou.jpg"

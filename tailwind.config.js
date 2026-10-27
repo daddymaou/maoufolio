@@ -1,8 +1,8 @@
 ﻿module.exports = {
   content: [
-    \"src/**/*.{js,ts,jsx,tsx}\",
-    \"src/pages/**/*.{js,ts,jsx,tsx}\",
-    \"src/components/**/*.{js,ts,jsx,tsx}\",
+    "src/**/*.{js,ts,jsx,tsx}",
+    "src/pages/**/*.{js,ts,jsx,tsx}",
+    "src/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -24,6 +24,7 @@
         gold: {
           DEFAULT: '#c4a35a',
           light: '#d4b87a',
+          600: '#c4a35a',
         },
       },
       backgroundImage: {

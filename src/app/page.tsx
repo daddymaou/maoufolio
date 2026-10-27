@@ -1,11 +1,8 @@
-﻿import Link from 'next/link';
-import Image from 'next/image';
-import SiteNav from '@/components/SiteNav';
+﻿import Image from 'next/image';
 
 export default function HomePage() {
   return (
     <>
-      <SiteNav />
       <header className="relative w-full h-[70vh] min-h-[500px] flex items-center justify-center">
         <Image
           src="/images/just-ask-maou.jpg"

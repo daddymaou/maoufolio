@@ -1,6 +1,5 @@
-﻿import Link from 'next/link';
-import SiteNav from '@/components/SiteNav';
-import { getBlogPostBySlug, getSortedPosts } from './blog-posts';
+import Link from 'next/link';
+import { getBlogPostBySlug, getSortedPosts } from '../blog-posts';
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -28,7 +27,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   if (!currentPost) {
     return (
       <>
-        <SiteNav />
+
         <main className="max-w-6xl mx-auto px-6 lg:px-8 py-16 text-center">
           <h1 className="text-4xl font-display">Post not found</h1>
           <Link href="/blog" className="mt-4 text-gold-600 underline">
@@ -41,7 +40,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <>
-      <SiteNav />
+
       <main className="max-w-4xl mx-auto px-6 lg:px-8 py-12">
         <div className="mb-8">
           <Link href="/blog" className="text-sm text-stone-500 hover:text-stone-700 flex items-center gap-2 mb-4">
