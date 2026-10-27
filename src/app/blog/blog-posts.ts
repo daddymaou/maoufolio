@@ -4,6 +4,11 @@ import matter from 'gray-matter';
 
 const blogDirectory = path.join(process.cwd(), 'content', 'blog');
 
+function formatDate(value: unknown): string {
+  if (value instanceof Date) return value.toISOString().slice(0, 10);
+  return String(value ?? '');
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -26,7 +31,7 @@ export function getSortedPosts() {
         title: data.title,
         description: data.description,
         category: data.category,
-        date: data.date,
+        date: formatDate(data.date),
         content: content,
       };
     })
@@ -47,7 +52,7 @@ export function getBlogPostBySlug(slug: string): BlogPost | undefined {
           title: data.title,
           description: data.description,
           category: data.category,
-          date: data.date,
+          date: formatDate(data.date),
           content: content,
         };
       }
