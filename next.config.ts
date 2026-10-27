@@ -1,10 +1,10 @@
-import type { NextConfig } from \"next\";
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
-      { hostname: \"github.com\" },
-      { hostname: \"*.githubusercontent.com\" },
+      { hostname: "github.com" },
+      { hostname: "*.githubusercontent.com" },
     ],
   },
   devIndicators: false,
