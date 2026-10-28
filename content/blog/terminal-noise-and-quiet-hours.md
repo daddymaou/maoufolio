@@ -1,8 +1,8 @@
 ---
-title: "Terminal Noise and Quiet Hours"
-description: "Managing notifications and interrupts when building"
-category: developer
-date: 2026-09-25
+title: "Terminal Noise & Quiet Hours"
+description: "Notes on ASCII art, high-contrast assets, and surviving the learning curve."
+category: personal
+date: 2026-09-17
 ---
 
 ![M](https://files.catbox.moe/mk5kmj.jpg)![A](https://files.catbox.moe/hqhecs.jpg)![O](https://files.catbox.moe/h12uu2.jpg)![U](https://files.catbox.moe/fqzy7r.jpg)

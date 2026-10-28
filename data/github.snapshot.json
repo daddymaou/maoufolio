@@ -1,0 +1,56 @@
+{
+  "updatedAt": "2026-10-05T23:48:42.319Z",
+  "contributionsLast12Months": null,
+  "publicRepoCount": 33,
+  "topLanguages": [],
+  "recentRepos": [
+    {
+      "name": "kelpie",
+      "url": "https://github.com/daddymaou/kelpie",
+      "description": "Kelpie is a local-first sync engine for TypeScript applications",
+      "language": null,
+      "pushedAt": "2026-10-05T23:45:35Z",
+      "stars": 0
+    },
+    {
+      "name": "wizardgram",
+      "url": "https://github.com/daddymaou/wizardgram",
+      "description": "Async Telegram bot framework for Python.",
+      "language": "Python",
+      "pushedAt": "2026-10-04T03:40:48Z",
+      "stars": 0
+    },
+    {
+      "name": "notebook",
+      "url": "https://github.com/daddymaou/notebook",
+      "description": "telegra.ph, but it feels like paper.",
+      "language": "TypeScript",
+      "pushedAt": "2026-10-04T02:56:59Z",
+      "stars": 0
+    },
+    {
+      "name": "maoublog",
+      "url": "https://github.com/daddymaou/maoublog",
+      "description": "This is where I write when I have something to say — mostly about what I'm building, sometimes not.",
+      "language": "Astro",
+      "pushedAt": "2026-10-03T22:58:29Z",
+      "stars": 1
+    },
+    {
+      "name": "daddymaou",
+      "url": "https://github.com/daddymaou/daddymaou",
+      "description": null,
+      "language": null,
+      "pushedAt": "2026-09-30T23:40:31Z",
+      "stars": 2
+    },
+    {
+      "name": "oriki",
+      "url": "https://github.com/daddymaou/oriki",
+      "description": null,
+      "language": "TypeScript",
+      "pushedAt": "2026-09-30T03:56:59Z",
+      "stars": 0
+    }
+  ]
+}

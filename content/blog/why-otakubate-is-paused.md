@@ -1,8 +1,8 @@
 ---
-title: "Why Otakubate Is Paused"
-description: "Where otakubate stands today"
-category: project
-date: 2026-10-01
+title: "Why Otakubate is on pause"
+description: "It's not dead, just not right now."
+category: personal
+date: 2026-09-15
 ---
 
 [Otakubate](https://github.com/daddymaou/otakubate) was supposed to be the anime platform I actually wanted to use. Debates, polls, clubs, a support chatbot that could actually hold a conversation. React, TypeScript, Vite, Tailwind. AnimeSearch pulling from AniList's GraphQL API instead of Jikan, streaming through Consumet. It was moving well.

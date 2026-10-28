@@ -1,8 +1,8 @@
 ---
-title: "og-meta-tags"
-description: "meta tags for the blog"
-category: technical
-date: 2026-09-20
+title: "The og meta tag, done properly"
+description: "Why your link previews show up blank, and the small set of tags that fixes it."
+category: professional
+date: 2026-09-24
 ---
 
 Having problem with og meta tag?

@@ -1,7 +1,7 @@
 ---
-title: "wizardgram release"
-description: "Async Telegram bot framework for Python"
-category: release
+title: "I built a Telegram bot framework"
+description: "wizardgram is an async Telegram bot framework for Python. Here's what's in it, what isn't, and why I'm shipping it at alpha."
+category: professional
 date: 2026-10-03
 ---
 
